@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High School Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      background: #0e0e0e;
+      overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    /* 3D Background Animation */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, #4a90e2, #0e0e0e);
+      transform: translate(-50%, -50%);
+      animation: rotate 60s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #4a90e2;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #4a90e2;
+    }
+
+    .projects, .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 15px;
+      width: 250px;
+      transition: transform 0.3s, background 0.3s;
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #4a90e2;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #357ABD;
+    }
+
+    /* Dark/Light Mode Toggle */
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px;
+      background: #4a90e2;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    .light-mode {
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    .light-mode header p,
+    .light-mode nav a {
+      color: #111;
+    }
+
+    .light-mode .card {
+      background: rgba(0,0,0,0.05);
+      color: #111;
+    }
+
+    .light-mode .card:hover {
+      background: rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn">Light Mode</button>
+<header>
+    <img src="img/cs.jpg" alt="Profile Photo" class="profile-pic rounded">
+      <div>
+        <h1>Gebrela Tesfaye</h1>
+        <p>highschool student| aspiring Doctor </p>
+      </div>
+    </header>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    
+  </header>
+  
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>High school student and future physician-innovator
+       with a focus on web development and Digital Medicine. 
+       I am passionate about leveraging coding skills to solve real-world
+        healthcare problems, from developing educational health platforms 
+        to exploring the power of big data in diagnostics. Combining scientific inquiry
+         with technical expertise, I am on a mission to integrate technology into the heart
+          of patient care".</p>
+ 
+  </section>
+   <header>
+      
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Website Project</h3>
+        <p>Created a personal website using HTML, CSS, and JS.</p>
+      </div>
+      <div class="card">
+        <h3>Science Fair</h3>
+        <p>Designed an experiment on renewable energy sources.</p>
+      </div>
+      <div class="card">
+        <h3>App Design</h3>
+        <p>Developed a simple mobile app interface using Figma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="card">HTML & CSS</div>
+      <div class="card">JavaScript</div>
+      <div class="card">Python</div>
+      <div class="card">Graphic Design</div>
+      <div class="card">Public Speaking</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: tesfayegebrela150@gmail.com</p>
+    <button onclick="alert('Thanks for reaching out!')">Send Message</button>
+  </section>
+
+  <script>
+    const toggleBtn = document.querySelector('.toggle-btn');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      toggleBtn.textContent = document.body.classList.contains('light-mode') ? 'Dark Mode' : 'Light Mode';
+    });
+  </script>
+</body>
+</html>
